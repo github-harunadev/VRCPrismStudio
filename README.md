@@ -24,7 +24,26 @@ Current latest version: 1.17
 
 ### → [Go to latest release](https://github.com/github-harunadev/VRCPrismStudio/releases/tag/latest)
 
-## Disclaimer
+#### Also you can download from:
+- [pixivBOOTH](https://harunadev.booth.pm/items/5671712)
+- [Gumroad](https://harunadev.gumroad.com/l/vrcprismstudio)
+- [Jinxxy](https://jinxxy.com/harunadev/vrcprismstudio)
+- [EDEN WORLD](https://eden-world.net/ko/market/314)
+
+## Third-Party Notices & Acknowledgments
+
+### osc-core
+* **Author:** tilde-love
+* **License:** MIT License
+
+### Google Material Symbols / Icons
+* **Author:** Google LLC
+* **License:** Apache License 2.0
+
+### Non-Destructive Modular Framework (NDMF)
+* **Author:** bd_
+* **License:** MIT License
+
 This project is an independent open-source tool and is not affiliated with, endorsed by, or associated with the creators of VRCLens, VirtualLens2, Integral, FlexFishEye, or VRChat Inc.
 
 Content produced using this software (including in-game photos, videos, streams, and recordings) belongs entirely to the user and is not bound by this license.

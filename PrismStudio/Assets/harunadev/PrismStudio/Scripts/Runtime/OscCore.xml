@@ -1,0 +1,1164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OscCore</name>
+    </assembly>
+    <members>
+        <member name="T:OscCore.Address.OscAddress">
+            <summary>
+                Encompasses an entire osc address
+            </summary>
+        </member>
+        <member name="P:OscCore.Address.OscAddress.Item(System.Int32)">
+            <summary>
+                Address parts
+            </summary>
+            <param name="index">the index of the part</param>
+            <returns>the address part at the given index</returns>
+        </member>
+        <member name="P:OscCore.Address.OscAddress.Count">
+            <summary>
+                The number of parts in the address
+            </summary>
+        </member>
+        <member name="P:OscCore.Address.OscAddress.IsLiteral">
+            <summary>
+                Is this address a literal
+            </summary>
+        </member>
+        <member name="P:OscCore.Address.OscAddress.OrigialString">
+            <summary>
+                The string used to create the address
+            </summary>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.#ctor(System.String)">
+            <summary>
+                Create an osc address from a string, must follow the rules set out in http://opensoundcontrol.org/spec-1_0 and
+                http://opensoundcontrol.org/spec-1_1
+            </summary>
+            <param name="address">the address string</param>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:OscCore.Address.OscAddress.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:OscCore.Address.OscAddress.IsMatch(System.String,System.String)">
+            <summary>
+                Does a address match a address pattern
+            </summary>
+            <param name="addressPattern">address pattern (may include wildcards and lists)</param>
+            <param name="address">literal address</param>
+            <returns>true if the addess matches the pattern</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.IsValidAddressLiteral(System.String)">
+            <summary>
+                Is the supplied address a valid literal address (no wildcards or lists)
+            </summary>
+            <param name="address">the address to check</param>
+            <returns>true if the address is valid</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.IsValidAddressPattern(System.String)">
+            <summary>
+                Is the supplied address a valid address pattern (may include wildcards and lists)
+            </summary>
+            <param name="addressPattern">the address pattern to check</param>
+            <returns>true if the address pattern is valid</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.Match(System.String)">
+            <summary>
+                Match this address against an address string
+            </summary>
+            <param name="address">the address string to match against</param>
+            <returns>true if the addresses match, otherwise false</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddress.Match(OscCore.Address.OscAddress)">
+            <summary>
+                Match this address against another
+            </summary>
+            <param name="address">the address to match against</param>
+            <returns>true if the addresses match, otherwise false</returns>
+        </member>
+        <member name="T:OscCore.Address.OscAddressPart">
+            <summary>
+                Encompasses a single part of an osc address
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPart.PartRegex">
+            <summary>
+                The regex representation of this part
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPart.Type">
+            <summary>
+                The address part type
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPart.Value">
+            <summary>
+                The original string value of this part
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPart.Interpreted">
+            <summary>
+                How the string was interpreted (only used for testing)
+            </summary>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.#ctor(OscCore.Address.OscAddressPartType,System.String,System.String,System.String)">
+            <summary>
+                Create a address part
+            </summary>
+            <param name="type">the type of part</param>
+            <param name="value">the original string value</param>
+            <param name="interpreted">the representation of the original value as interpreted by the parser</param>
+            <param name="partRegex">the part as a regex expression</param>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.AddressSeparator">
+            <summary>
+                Create a address separator part '/'
+            </summary>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.AddressWildcard">
+            <summary>
+                Create a address wildcard part "//"
+            </summary>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.CharList(System.String)">
+            <summary>
+                Character list e.g. [abcde]
+            </summary>
+            <param name="value">the original string</param>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.CharSpan(System.String)">
+            <summary>
+                Character span e.g. [a-e]
+            </summary>
+            <param name="value">the original string</param>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.List(System.String)">
+            <summary>
+                Literal list e.g. {thing1,THING1}
+            </summary>
+            <param name="value">the original string</param>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.Literal(System.String)">
+            <summary>
+                Create a literal address part
+            </summary>
+            <param name="value">the literal</param>
+            <returns>the part</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressPart.Wildcard(System.String)">
+            <summary>
+                Create a part for a wildcard part
+            </summary>
+            <param name="value">the original string</param>
+            <returns>the part</returns>
+        </member>
+        <member name="T:OscCore.Address.OscAddressPartType">
+            <summary>
+                Type of address part
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.AddressSeparator">
+            <summary>
+                Address separator char i.e. '/'
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.AddressWildcard">
+            <summary>
+                Address wildcard i.e. '//'
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.Literal">
+            <summary>
+                Any string literal i.e [^\s#\*,/\?\[\]\{}]+
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.Wildcard">
+            <summary>
+                Either single char or any length wildcard i.e '?' or '*'
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.CharSpan">
+            <summary>
+                Char span e.g. [a-z]+
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.List">
+            <summary>
+                List of literal matches
+            </summary>
+        </member>
+        <member name="F:OscCore.Address.OscAddressPartType.CharList">
+            <summary>
+                List of possible char matches e.g. [abcdefg]+
+            </summary>
+        </member>
+        <member name="T:OscCore.Address.OscAddressRegexCache">
+            <summary>
+                Regex cache is an optimisation for regexs for address patterns. Caching is enabled by default.
+            </summary>
+            <remarks>
+                This mechanism assumes that the same addresses will be used multiple times
+                and that there will be a finite number of unique addresses parsed over the course
+                of the execution of the program.
+                If there are to be many unique addresses used of the course of the execution of
+                the program then it maybe desirable to disable caching.
+            </remarks>
+        </member>
+        <member name="P:OscCore.Address.OscAddressRegexCache.Count">
+            <summary>
+                The number of cached regex(s)
+            </summary>
+        </member>
+        <member name="P:OscCore.Address.OscAddressRegexCache.Enabled">
+            <summary>
+                Enable regex caching for the entire program (Enabled by default)
+            </summary>
+        </member>
+        <member name="M:OscCore.Address.OscAddressRegexCache.Aquire(System.String)">
+            <summary>
+                Acquire a regex, either by creating it if no cached one can be found or retrieving the cached one.
+            </summary>
+            <param name="regex">regex pattern</param>
+            <returns>a regex created from or retrieved for the pattern</returns>
+        </member>
+        <member name="M:OscCore.Address.OscAddressRegexCache.Clear">
+            <summary>
+                Clear the entire cache
+            </summary>
+        </member>
+        <member name="T:OscCore.OscColor">
+            <summary>
+                Represents a 32bit ARGB color
+            </summary>
+            <remarks>
+                This is a poor replacement for System.Drawing.Color but unfortunately many platforms do not support
+                the System.Drawing namespace.
+            </remarks>
+        </member>
+        <member name="P:OscCore.OscColor.ARGB">
+            <summary>
+                Alpha, red, green and blue components packed into a single 32bit int
+            </summary>
+        </member>
+        <member name="P:OscCore.OscColor.R">
+            <summary>
+                Red component
+            </summary>
+        </member>
+        <member name="P:OscCore.OscColor.G">
+            <summary>
+                Green component
+            </summary>
+        </member>
+        <member name="P:OscCore.OscColor.B">
+            <summary>
+                Blue component
+            </summary>
+        </member>
+        <member name="P:OscCore.OscColor.A">
+            <summary>
+                Alpha component
+            </summary>
+        </member>
+        <member name="M:OscCore.OscColor.#ctor(System.Int32)">
+            <summary>
+                Initate a new Osc-Color from an ARGB color value
+            </summary>
+            <param name="value">An 32bit ARGB integer</param>
+        </member>
+        <member name="M:OscCore.OscColor.FromArgb(System.Int32)">
+            <summary>
+                Create a Osc-Color from an 32bit ARGB integer
+            </summary>
+            <param name="argb">An ARGB integer</param>
+            <returns>An Osc Color</returns>
+        </member>
+        <member name="M:OscCore.OscColor.FromArgb(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+                Create a Osc-Color from 4 channels
+            </summary>
+            <param name="alpha">Alpha channel component</param>
+            <param name="red">Red channel component</param>
+            <param name="green">Green channel component</param>
+            <param name="blue">Blue channel component</param>
+            <returns>An Osc Color</returns>
+        </member>
+        <member name="T:OscCore.OscImpulse">
+            <summary>
+                Osc Impulse Singleton
+            </summary>
+        </member>
+        <member name="M:OscCore.OscImpulse.IsImpulse(System.String)">
+            <summary>
+                Matches the string against "Impulse", "Bang", "Infinitum", "Inf" the comparison is
+                StringComparison.OrdinalIgnoreCase
+            </summary>
+            <param name="str">string to check</param>
+            <returns>true if the string matches any of the recognised impulse strings else false</returns>
+        </member>
+        <member name="T:OscCore.OscMidiMessage">
+            <summary>
+                Midi Message
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMidiMessage.MessageType">
+            <summary>
+                The midi message type
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMidiMessage.SystemMessageType">
+            <summary>
+                The system message type, only valid when MessageType is SystemExclusive
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMidiMessage.Channel">
+            <summary>
+                The channel, only valid when MessageType is not SystemExclusive
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMidiMessage.Data14BitValue">
+            <summary>
+                14 bit data value, for pitch bend messages
+            </summary>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.UInt32)">
+            <summary>
+                Parse a midi message from a single 4 byte integer
+            </summary>
+            <param name="value">4 byte integer portID | (type | channel) | data1 | data2</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="statusByte">status byte</param>
+            <param name="data1">data 1</param>
+            <param name="data2">data 2</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiMessageType,System.Byte,System.Byte,System.Byte)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">the id of the destination port</param>
+            <param name="type">the type of message</param>
+            <param name="channel">the channel</param>
+            <param name="data1">data argument 1</param>
+            <param name="data2">data argument 2</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiMessageType,System.Byte,System.Byte)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="type">midi message type</param>
+            <param name="channel">midi channel</param>
+            <param name="data1">data 1</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiMessageType,System.Byte,System.UInt16)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="type">midi message type</param>
+            <param name="channel">midi channel</param>
+            <param name="value">14 bit data value</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiSystemMessageType,System.UInt16)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="type">midi system message type</param>
+            <param name="value">14 bit data value</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiSystemMessageType,System.Byte)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="type">midi system message type</param>
+            <param name="data1">data 1</param>
+        </member>
+        <member name="M:OscCore.OscMidiMessage.#ctor(System.Byte,OscCore.OscMidiSystemMessageType,System.Byte,System.Byte)">
+            <summary>
+                Create midi message
+            </summary>
+            <param name="portID">port id</param>
+            <param name="type">midi system message type</param>
+            <param name="data1">data 1</param>
+            <param name="data2">data 2</param>
+        </member>
+        <member name="T:OscCore.OscNull">
+            <summary>
+                Osc Null Singleton
+            </summary>
+        </member>
+        <member name="T:OscCore.OscSymbol">
+            <summary>
+                Osc symbol
+            </summary>
+        </member>
+        <member name="F:OscCore.OscSymbol.Value">
+            <summary>
+                The string value of the symbol
+            </summary>
+        </member>
+        <member name="M:OscCore.OscSymbol.#ctor(System.String)">
+            <summary>
+                Create a new symbol
+            </summary>
+            <param name="value">literal string value</param>
+        </member>
+        <member name="T:OscCore.OscTimeTag">
+            <summary>
+                OSC time tag.
+            </summary>
+        </member>
+        <member name="F:OscCore.OscTimeTag.BaseDate">
+            <summary>
+                The minimum date for any OSC time tag.
+            </summary>
+        </member>
+        <member name="P:OscCore.OscTimeTag.Now">
+            <summary>
+                Gets a OscTimeTag object that is set to the current date and time on this computer, expressed as the local time.
+            </summary>
+        </member>
+        <member name="P:OscCore.OscTimeTag.UtcNow">
+            <summary>
+                Gets a OscTimeTag object that is set to the current date and time on this computer, expressed as the Coordinated
+                Universal Time (UTC).
+            </summary>
+        </member>
+        <member name="F:OscCore.OscTimeTag.Value">
+            <summary>
+                Time tag value represented by a 64 bit fixed point number. The first 32 bits specify the number of seconds since
+                midnight on January 1, 1900, and the last 32 bits specify fractional parts of a second to a precision of about 200
+                picoseconds. This is the representation used by Internet NTP timestamps.
+            </summary>
+        </member>
+        <member name="P:OscCore.OscTimeTag.Seconds">
+            <summary>
+                Gets the number of seconds since midnight on January 1, 1900. This is the first 32 bits of the 64 bit fixed point
+                OSC time tag value.
+            </summary>
+        </member>
+        <member name="P:OscCore.OscTimeTag.Fraction">
+            <summary>
+                Gets the fractional parts of a second. This is the 32 bits of the 64 bit fixed point OSC time tag value.
+            </summary>
+        </member>
+        <member name="P:OscCore.OscTimeTag.SecondsDecimal">
+            <summary>
+                Gets the number of seconds including fractional parts since midnight on January 1, 1900.
+            </summary>
+        </member>
+        <member name="M:OscCore.OscTimeTag.#ctor(System.UInt64)">
+            <summary>
+                Build a OSC time tag from a NTP 64 bit integer.
+            </summary>
+            <param name="value">The 64 bit integer containing the time stamp.</param>
+        </member>
+        <member name="M:OscCore.OscTimeTag.Equals(System.Object)">
+            <summary>
+                Does this OSC time tag equal another object.
+            </summary>
+            <param name="obj">An object.</param>
+            <returns>True if the objects are the same.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.GetHashCode">
+            <summary>
+                Gets a hashcode for this OSC time tag.
+            </summary>
+            <returns>A hashcode.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.ToString">
+            <summary>
+                Get a string of this OSC time tag in the format "dd-MM-yyyy HH:mm:ss.ffffZ".
+            </summary>
+            <returns>The string value of this OSC time tag.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.ToDataTime">
+            <summary>
+                Get the equivalent date-time value from the OSC time tag.
+            </summary>
+            <returns>the equivalent value as a date-time</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.FromDataTime(System.DateTime)">
+            <summary>
+                Get a Osc times tamp from a date-time value.
+            </summary>
+            <param name="datetime">Date-time value.</param>
+            <returns>The equivalent value as an osc time tag.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.Parse(System.String,System.IFormatProvider)">
+            <summary>
+                Parse a OSC time tag from date-time string.
+            </summary>
+            <param name="str">String to parse.</param>
+            <param name="provider">Format provider</param>
+            <returns>The parsed time tag.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.Parse(System.String)">
+            <summary>
+                Parse a OSC time tag from date-time string.
+            </summary>
+            <param name="str">String to parse.</param>
+            <returns>The parsed time tag.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.TryParse(System.String,System.IFormatProvider,OscCore.OscTimeTag@)">
+            <summary>
+                Try to parse a OSC time tag from date-time string.
+            </summary>
+            <param name="str">String to parse.</param>
+            <param name="provider">Format provider.</param>
+            <param name="value">The parsed time tag.</param>
+            <returns>True if parsed else false.</returns>
+        </member>
+        <member name="M:OscCore.OscTimeTag.TryParse(System.String,OscCore.OscTimeTag@)">
+            <summary>
+                Try to parse a OSC time tag from date-time string.
+            </summary>
+            <param name="str">String to parse.</param>
+            <param name="value">The parsed time tag.</param>
+            <returns>True if parsed else false.</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscReader.ReadArgument(OscCore.LowLevel.OscTypeTag@)">
+            <summary>
+                This method is not the preferred way to parse arguments because any argument will be boxed into a object.
+                Instead you should use the correct value type reader for each argument.
+            </summary>
+            <returns>the argument value boxed as an object.</returns>
+            <exception cref="T:OscCore.OscException">If the current token is not an argument token.</exception>
+        </member>
+        <member name="M:OscCore.LowLevel.OscSerializationUtils.Escape(System.String)">
+            <summary>
+                Turn a byte array into a readable, escaped string
+            </summary>
+            <param name="original">bytes</param>
+            <returns>a string</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscSerializationUtils.Unescape(System.String)">
+            <summary>
+                Turn a readable string into a byte array
+            </summary>
+            <param name="str">a string, optionally with escape sequences in it</param>
+            <returns>a byte array</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscStringWriter.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:OscCore.LowLevel.OscToken">
+            <summary>
+                A single osc message token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.None">
+            <summary>
+                No token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.OscAddress">
+            <summary>
+                Osc address string token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.TypeTag">
+            <summary>
+                Type-tag string token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Char">
+            <summary>
+                Char/byte token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Bool">
+            <summary>
+                Meta boolean token (actual bools are defined as either true or false in the type-tag).
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.True">
+            <summary>
+                Bool true value token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.False">
+            <summary>
+                Bool false value token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.String">
+            <summary>
+                String token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Symbol">
+            <summary>
+                Symbol string token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Impulse">
+            <summary>
+                Impulse / bang token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Null">
+            <summary>
+                Null token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Int">
+            <summary>
+                Int32 token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Long">
+            <summary>
+                Int64 token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Float">
+            <summary>
+                Float / Single token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Double">
+            <summary>
+                Double token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.TimeTag">
+            <summary>
+                Osc time-tag token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Blob">
+            <summary>
+                Osc time-tag token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Color">
+            <summary>
+                Osc color token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.Midi">
+            <summary>
+                Osc midi token.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.ArrayStart">
+            <summary>
+                Token represents the start of an array.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.ArrayEnd">
+            <summary>
+                Token represents the end of an array.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.MixedTypes">
+            <summary>
+                Meta token used to indicate multiple types are present in an argument array.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.End">
+            <summary>
+                Token represents the end of the message.
+            </summary>
+        </member>
+        <member name="F:OscCore.LowLevel.OscToken.BundleMessageLength">
+            <summary>
+                Bundle message length token.
+            </summary>
+        </member>
+        <member name="M:OscCore.LowLevel.OscUtils.ArgumentsAreEqual(System.Object[],System.Object[])">
+            <summary>
+                Are the contents of 2 argument arrays the equivalent
+            </summary>
+            <param name="array1">An array containing argument objects</param>
+            <param name="array2">An array containing argument objects</param>
+            <returns>true if the object arrays are equivalent</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscUtils.BytesAreEqual(System.Byte[],System.Byte[])">
+            <summary>
+                Check the contents of 2 arrays of bytes are the same
+            </summary>
+            <param name="expected">The expected contents</param>
+            <param name="actual">The actual contents</param>
+            <returns>True if the contents are the same</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscUtils.MessagesAreEqual(OscCore.OscMessage,OscCore.OscMessage)">
+            <summary>
+                Are 2 messages equivalent
+            </summary>
+            <param name="message1">A message</param>
+            <param name="message2">A message</param>
+            <returns>true if the objects are equivalent</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscUtils.SizeOfObjectArray(System.Object[])">
+            <summary>
+                Calculate the size of the an object array in bytes
+            </summary>
+            <param name="args">the array</param>
+            <returns>the size of the array in bytes</returns>
+        </member>
+        <member name="M:OscCore.LowLevel.OscUtils.SizeOfObjectArray_TypeTag(System.Object[])">
+            <summary>
+                Calculate the size of the type tag of an object array
+            </summary>
+            <param name="args">the array</param>
+            <returns>the size of the type tag for the array</returns>
+        </member>
+        <member name="T:OscCore.OscBundle">
+            <summary>
+                Bundle of osc messages
+            </summary>
+        </member>
+        <member name="P:OscCore.OscBundle.Item(System.Int32)">
+            <summary>
+                Access bundle messages by index
+            </summary>
+            <param name="index">the index of the message</param>
+            <returns>message at the supplied index</returns>
+        </member>
+        <member name="P:OscCore.OscBundle.Count">
+            <summary>
+                The number of messages in the bundle
+            </summary>
+        </member>
+        <member name="P:OscCore.OscBundle.SizeInBytes">
+            <summary>
+                The size of the packet in bytes
+            </summary>
+        </member>
+        <member name="P:OscCore.OscBundle.Timestamp">
+            <summary>
+                Osc timestamp associated with this bundle
+            </summary>
+        </member>
+        <member name="M:OscCore.OscBundle.#ctor(OscCore.OscTimeTag,OscCore.OscPacket[])">
+            <summary>
+                Create a bundle of messages
+            </summary>
+            <param name="timestamp">timestamp</param>
+            <param name="messages">messages to bundle</param>
+        </member>
+        <member name="M:OscCore.OscBundle.#ctor(System.DateTime,OscCore.OscPacket[])">
+            <summary>
+                Create a bundle of messages
+            </summary>
+            <param name="timestamp">timestamp</param>
+            <param name="messages">messages to bundle</param>
+        </member>
+        <member name="M:OscCore.OscBundle.#ctor(System.Uri,OscCore.OscTimeTag,OscCore.OscPacket[])">
+            <summary>
+                Create a bundle of messages
+            </summary>
+            <param name="origin">the origin of the osc bundle</param>
+            <param name="timestamp">timestamp</param>
+            <param name="messages">messages to bundle</param>
+        </member>
+        <member name="M:OscCore.OscBundle.#ctor(System.Uri,System.DateTime,OscCore.OscPacket[])">
+            <summary>
+                Create a bundle of messages
+            </summary>
+            <param name="origin">the origin of the osc bundle</param>
+            <param name="timestamp">timestamp</param>
+            <param name="messages">messages to bundle</param>
+        </member>
+        <member name="M:OscCore.OscBundle.System#Collections#Generic#IEnumerable{OscCore#OscMessage}#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:OscCore.OscBundle.GetEnumerator">
+            <summary>
+                Enumerate all the osc packets contained in this bundle
+            </summary>
+            <returns>A IEnumerator of osc packets</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.IsBundle(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+                Does the array contain a bundle packet?
+            </summary>
+            <param name="bytes">the array that contains a packet</param>
+            <param name="index">the offset within the array where the packet starts</param>
+            <param name="count">the number of bytes in the packet</param>
+            <returns>true if the packet contains a valid bundle header</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.Parse(System.String,System.IFormatProvider)">
+            <summary>
+                parse a bundle from a string using a supplied format provider
+            </summary>
+            <param name="str">a string containing a bundle</param>
+            <param name="provider">the format provider to use</param>
+            <returns>the parsed bundle</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.Read(System.Byte[],System.Int32,System.Int32,System.Uri)">
+            <summary>
+                Read a OscBundle from a array of bytes
+            </summary>
+            <param name="bytes">the array that contains the bundle</param>
+            <param name="index">the offset within the array where reading should begin</param>
+            <param name="count">the number of bytes in the bundle</param>
+            <param name="origin">the origin that is the origin of this bundle</param>
+            <returns>the bundle</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.ToByteArray">
+            <summary>
+                Creates a byte array that contains the osc message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OscCore.OscBundle.TryParse(System.String,OscCore.OscBundle@)">
+            <summary>
+                Try to parse a bundle from a string using the InvariantCulture
+            </summary>
+            <param name="str">the bundle as a string</param>
+            <param name="bundle">the parsed bundle</param>
+            <returns>true if the bundle could be parsed else false</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.TryParse(System.String,System.IFormatProvider,OscCore.OscBundle@)">
+            <summary>
+                Try to parse a bundle from a string using a supplied format provider
+            </summary>
+            <param name="str">the bundle as a string</param>
+            <param name="provider">the format provider to use</param>
+            <param name="bundle">the parsed bundle</param>
+            <returns>true if the bundle could be parsed else false</returns>
+        </member>
+        <member name="M:OscCore.OscBundle.Write(System.Byte[],System.Int32)">
+            <summary>
+                Send the bundle into a byte array
+            </summary>
+            <param name="data">an array ouf bytes to write the bundle into</param>
+            <param name="index">the index within the array where writing should begin</param>
+            <returns>the number of bytes in the message</returns>
+        </member>
+        <member name="M:OscCore.OscBundleRaw.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:OscCore.OscBundleRaw.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:OscCore.OscError">
+            <summary>
+                All errors that can occur while parsing or reading osc packets, messages and bundles
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.None">
+            <summary>
+                No error
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.InvalidSegmentLength">
+            <summary>
+                An invalid number or bytes has been read
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.MissingAddress">
+            <summary>
+                The address string is empty
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.MissingComma">
+            <summary>
+                Missing comma after the address string
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.MissingTypeTag">
+            <summary>
+                Missing type-tag
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.MalformedTypeTag">
+            <summary>
+                Invalid type-tag
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingArgument">
+            <summary>
+                Error parsing arguemnt
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingBlob">
+            <summary>
+                Error parsing blob argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingString">
+            <summary>
+                Error parsing string argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingSymbol">
+            <summary>
+                Error parsing symbol argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingInt32">
+            <summary>
+                Error parsing int argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingInt64">
+            <summary>
+                Error parsing long argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingSingle">
+            <summary>
+                Error parsing float argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingDouble">
+            <summary>
+                Error parsing double argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingColor">
+            <summary>
+                Error parsing osc-color argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingChar">
+            <summary>
+                Error parsing char argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingMidiMessage">
+            <summary>
+                Error parsing midi message argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingOscTimeTag">
+            <summary>
+                Error parsing midi message argument
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.UnknownArguemntType">
+            <summary>
+                The type of an argument is unsupported
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.MissingBundleIdent">
+            <summary>
+                Bundle with missing ident
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.InvalidBundleIdent">
+            <summary>
+                Bundle with invalid ident
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.InvalidBundleMessageHeader">
+            <summary>
+                Invalid bundle message header
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.ErrorParsingPacket">
+            <summary>
+                An error occured while parsing a packet
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.InvalidBundleMessageLength">
+            <summary>
+                Invalid bundle message length
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.UnexpectedToken">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:OscCore.OscError.UnexpectedWriterState">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:OscCore.OscMessage">
+            <summary>
+                Any osc message
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMessage.Item(System.Int32)">
+            <summary>
+                Access message arguments by index
+            </summary>
+            <param name="index">the index of the message</param>
+            <returns>message at the supplied index</returns>
+        </member>
+        <member name="P:OscCore.OscMessage.IsEmpty">
+            <summary>
+                IS the argument list empty
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMessage.SizeInBytes">
+            <summary>
+                The size of the message in bytes
+            </summary>
+        </member>
+        <member name="M:OscCore.OscMessage.#ctor(System.String,System.Object[])">
+            <summary>
+                Construct a osc message
+            </summary>
+            <param name="address">An osc address that is the destination for this message</param>
+            <param name="args">
+                Object array of OSC argument values. The type tag string will be created automatically according to
+                each argument type
+            </param>
+            <example>OscMessage message = new OscMessage("/test/test", 1, 2, 3);</example>
+        </member>
+        <member name="M:OscCore.OscMessage.#ctor(System.Uri,System.String,System.Object[])">
+            <summary>
+                Construct a OSC message
+            </summary>
+            <param name="origin">the origin of the OSC message</param>
+            <param name="address">An OSC address that is the destination for this message</param>
+            <param name="args">
+                Object array of OSC argument values. The type tag string will be created automatically according to
+                each argument type
+            </param>
+            <example>OscMessage message = new OscMessage("/test/test", 1, 2, 3);</example>
+        </member>
+        <member name="M:OscCore.OscMessage.Preallocate(System.Int32)">
+            <summary>
+            2026/4/26 added by harunadev. Preallocate the argument array to avoid unnecessary array resizing.
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="M:OscCore.OscMessage.Set(System.Int32,System.Object)">
+            <summary>
+            2026/4/26 added by harunadev. Set argument at index. Strongly recommended to use Preallocate (or feed objects when creating instance) before.
+            </summary>
+            <param name="index"></param>
+            <param name="data"></param>
+        </member>
+        <member name="P:OscCore.OscMessage.Address">
+            <summary>
+                The address of the message (2026/4/26 modified by harunadev, make Address writable)
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMessage.Count">
+            <summary>
+                Number of arguments in the message
+            </summary>
+        </member>
+        <member name="P:OscCore.OscMessage.Timestamp">
+            <summary>
+                Optional time tag, will be non-null if this message was extracted from a bundle
+            </summary>
+        </member>
+        <member name="M:OscCore.OscMessage.Parse(System.String,System.IFormatProvider)">
+            <summary>
+                parse a message from a string using a supplied format provider
+            </summary>
+            <param name="str">a string containing a message</param>
+            <param name="provider">the format provider to use</param>
+            <returns>the parsed message</returns>
+        </member>
+        <member name="M:OscCore.OscMessage.Read(System.Byte[],System.Int32,System.Int32,System.Uri,System.Nullable{OscCore.OscTimeTag})">
+            <summary>
+                Read a OscMessage from a array of bytes
+            </summary>
+            <param name="bytes">the array that contains the message</param>
+            <param name="index">the offset within the array where reading should begin</param>
+            <param name="count">the number of bytes in the message</param>
+            <param name="origin">the origin of the packet</param>
+            <param name="timeTag">time-tag of parent bundle</param>
+            <exception cref="T:OscCore.OscException"></exception>
+            <returns>the parsed OSC message or an empty message if their was an error while parsing</returns>
+        </member>
+        <member name="M:OscCore.OscMessage.ToArray">
+            <summary>
+                Get the arguments as an array
+            </summary>
+            <returns>arguments array</returns>
+        </member>
+        <member name="M:OscCore.OscMessage.ToByteArray">
+            <summary>
+                Creates a byte array that contains the osc message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OscCore.OscMessage.TryParse(System.String,OscCore.OscMessage@)">
+            <summary>
+                Try to parse a message from a string using the InvariantCulture
+            </summary>
+            <param name="str">the message as a string</param>
+            <param name="message">the parsed message</param>
+            <returns>true if the message could be parsed else false</returns>
+        </member>
+        <member name="M:OscCore.OscMessage.TryParse(System.String,System.IFormatProvider,OscCore.OscMessage@)">
+            <summary>
+                Try to parse a message from a string using a supplied format provider
+            </summary>
+            <param name="str">the message as a string</param>
+            <param name="provider">the format provider to use</param>
+            <param name="message">the parsed message</param>
+            <returns>true if the message could be parsed else false</returns>
+        </member>
+        <member name="M:OscCore.OscMessage.Write(System.Byte[],System.Int32)">
+            <summary>
+                Write the message body into a byte array
+            </summary>
+            <param name="data">an array of bytes to write the message body into</param>
+            <param name="index">the index within the array where writing should begin</param>
+            <returns>the number of bytes in the message</returns>
+        </member>
+        <member name="M:OscCore.OscMessageRaw.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:OscCore.OscMessageRaw.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:OscCore.OscPacket">
+            <summary>
+                Base class for all osc packets
+            </summary>
+        </member>
+        <member name="P:OscCore.OscPacket.Origin">
+            <summary>
+                The packet origin
+            </summary>
+        </member>
+        <member name="P:OscCore.OscPacket.SizeInBytes">
+            <summary>
+                The size of the packet in bytes
+            </summary>
+        </member>
+        <member name="M:OscCore.OscPacket.Read(System.Byte[],System.Int32,System.Int32,System.Uri,System.Nullable{OscCore.OscTimeTag})">
+            <summary>
+                Read the osc packet from a byte array
+            </summary>
+            <param name="bytes">array to read from</param>
+            <param name="index">the offset within the array where reading should begin</param>
+            <param name="count">the number of bytes in the packet</param>
+            <param name="origin">the origin that is the origin of this packet</param>
+            <param name="timeTag">the time tag asociated with the parent</param>
+            <returns>the packet</returns>
+        </member>
+        <member name="M:OscCore.OscPacket.ToByteArray">
+            <summary>
+                Get an array of bytes containing the entire packet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OscCore.OscPacket.Write(System.Byte[],System.Int32)">
+            <summary>
+                Send the packet into a byte array
+            </summary>
+            <param name="data">the destination for the packet</param>
+            <param name="index">the offset within the array where writing should begin</param>
+            <returns>the length of the packet in bytes</returns>
+        </member>
+    </members>
+</doc>

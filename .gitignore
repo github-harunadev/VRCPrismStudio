@@ -1,3 +1,4 @@
+PrismStudio/.vs/
 PrismStudio/[Ll]ibrary/
 PrismStudio/[Tt]emp/
 PrismStudio/[Oo]bj/
@@ -8,7 +9,11 @@ PrismStudio/[Uu]ser[Ss]ettings/
 PrismStudio/[Mm]emoryCaptures/
 PrismStudio/[Aa]sset[Ss]tore[Tt]ools*
 PrismStudio/[Rr]ecordings/
+PrismStudio/.vsconfig
+PrismStudio/*.csproj
+PrismStudio/*.sln
 
+UniversalPatcher/.vs/
 UniversalPatcher/[Ll]ibrary/
 UniversalPatcher/[Tt]emp/
 UniversalPatcher/[Oo]bj/
@@ -19,19 +24,23 @@ UniversalPatcher/[Uu]ser[Ss]ettings/
 UniversalPatcher/[Mm]emoryCaptures/
 UniversalPatcher/[Aa]sset[Ss]tore[Tt]ools*
 UniversalPatcher/[Rr]ecordings/
+UniversalPatcher/.vsconfig
+UniversalPatcher/*.csproj
+UniversalPatcher/*.sln
 
-Core/[Bb]in/
-Core/[Oo]bj/
-Core/[Ll]og/
-Core/[Ll]ogs/
-Core/publish/
-Core/TestResults/
 Core/.vs/
 Core/*.suo
 Core/*.user
 Core/*.userosscache
 Core/*.sln.docstates
 Core/*.VisualState.xml
+Core/Core/.vs/
+Core/Core/[Bb]in/
+Core/Core/[Oo]bj/
+Core/Core/[Ll]og/
+Core/Core/[Ll]ogs/
+Core/Core/publish/
+Core/Core/TestResults/
 
 *.nupkg
 *.snupkg

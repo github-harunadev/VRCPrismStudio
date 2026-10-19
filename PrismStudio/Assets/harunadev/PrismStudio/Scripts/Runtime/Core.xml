@@ -1,0 +1,1724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core</name>
+    </assembly>
+    <members>
+        <member name="T:PrismStudio.CameraPoint">
+            <summary>
+            PrismStudio Core: CameraPoint
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.description(PrismStudio.I18n.SupportedLanguage)">
+            <summary>
+            Description of CameraPoint
+            CameraPoint 설명
+            </summary>
+            <param name="lang">language</param>
+            <returns></returns>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.foldout_general">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.foldout_camerashake">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.foldout_fppcam">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.foldout_postprocessors">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.fpp_lookSpeed">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.fpp_moveSpeed">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.PointForwardDistance">
+            <summary>
+            Point object's forward vector calculation distance
+            Point 오브젝트의 앞 벡터 계산 거리
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.useCinemachine">
+            <summary>
+            Use Cinemachine
+            | Cinemachine을 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.targetCinemachine">
+            <summary>
+            Target Cinemachine Brain
+            | 추적할 CinemachineBrain 컴포넌트
+            </summary>
+        </member>
+        <member name="P:PrismStudio.CameraPoint.PostProcessorObject">
+            <summary>
+            Direct access to PostProcessor collection object (public get only)
+            PostProcessor 모음 오브젝트에 접근
+            </summary>
+        </member>
+        <member name="P:PrismStudio.CameraPoint.FinalizedTransformObject">
+            <summary>
+            Direct access to FinalizedTransform Object (the finallized position &amp; rotation)
+            FinalizedTransform 오브젝트에 접근 (최종 위치 &amp; 각도)
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.OnSend(PrismStudio.StudioSystem,System.Boolean)">
+            <summary>
+            Called from StudioSystem
+            StudioSystem에서 호출하는 함수
+            </summary>
+            <param name="system">StudioSystem</param>
+            <param name="immediate">send OSC now?</param>
+            <returns>is success?</returns>
+            <returns>is success?</returns>
+        </member>
+        <member name="P:PrismStudio.CameraPoint.PostProcessors">
+            <summary>
+            Registered PostProcessors
+            등록된 PostProcessor 배열
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.ValidatePostProcessorsList">
+            <summary>
+            Validate PostProcessor array
+            PostProcessor 배열을 검사
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.UpdatePostProcessorsList">
+            <summary>
+            Repopulate PostProcessor Array
+            PostProcessor 배열 재구성
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraPoint.PostProcessor">
+            <summary>
+            PrismStudio Core: PostProcessor
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.PostProcessor.#ctor">
+            <summary>
+            PostProcessor Initializer
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraPoint.PostProcessor.Process(PrismStudio.CameraPoint.PostProcessor.ProcessData)">
+            <summary>
+            Process the given Vector3 &amp; Quaternion
+            주어진 Vector3와 Quaternion을 처리합니다
+            </summary>
+            <param name="data">data from caller</param>
+            <returns>pair of Vector3 and Quaternion as a form of ProcessData</returns>
+        </member>
+        <member name="T:PrismStudio.CameraPoint.PostProcessor.ProcessData">
+            <summary>
+            Pair of Vector3 and Quaternion
+            Vector3와 Quaternion의 집합
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.PostProcessor.ProcessData.position">
+            <summary>
+            Position (Vector3)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.PostProcessor.ProcessData.rotation">
+            <summary>
+            Rotation (Quaternion)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.PostProcessor.ProcessData.originalPosition">
+            <summary>
+            Original Position (Vector3)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraPoint.PostProcessor.ProcessData.originalRotation">
+            <summary>
+            Original Rotation (Quaternion)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.PostProcessorCollection">
+            <summary>
+            PrismStudio Core: PostProcessorCollection
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty">
+            <summary>
+            PrismStudio Core: CameraProperty
+            (c) harunadev
+            VRCLens is a property owned by Hirabiki.
+            VirtualLens2 is a property owned by logilabo (ろじらぼ).
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.description(PrismStudio.I18n.SupportedLanguage)">
+            <summary>
+            Description of CameraProperty
+            | CameraProperty 설명
+            </summary>
+            <param name="lang">language</param>
+            <returns></returns>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.zoom">
+            <summary>
+            Zoom value 
+            | 확대값
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.exposure">
+            <summary>
+            Exposure value
+            | 노출값
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.aperture">
+            <summary>
+            Aperture value
+            | 조리개값
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.focus">
+            <summary>
+            Focus value, 0  ->  Auto, n > 0  ->  Manual 
+            | 초점값, 0  =>  자동, n > 0  => 수동
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.focusX">
+            <summary>
+            X axis of focus point at 2D plane, only works for manual focus 
+            | 초점 포인트의 X좌표값, 수동초첨중 사용가능
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.focusY">
+            <summary>
+            Y axis of focus point at 2D plane, only works for manual focus 
+            | 초점 포인트의 Y좌표값, 수동초점중 사용가능
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt">
+            <summary>
+            Look at local avatar, ignores PrismStudio initial angle 
+            | 로컬 아바타를 바라보기, PrismStudio의 각도값을 무시함
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.ap">
+            <summary>
+            Offset Vector3 for Look at local avatar 
+            | 로컬 아바타 바라보기에 적용되는 오프셋 좌표
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_root">
+            <summary>
+            Look at local avatar's root 
+            | 로컬 아바타의 Root 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_head">
+            <summary>
+            Look at local avatar's head 
+            | 로컬 아바타의 머리 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_chest">
+            <summary>
+            Look at local avatar's chest 
+            | 로컬 아바타의 가슴 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_hips">
+            <summary>
+            Look at local avatar's hips 
+            | 로컬 아바타의 허리 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_lfoot">
+            <summary>
+            Look at local avatar's left foot 
+            | 로컬 아바타의 왼발 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_rfoot">
+            <summary>
+            Look at local avatar's right foot 
+            | 로컬 아바타의 오른발 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_lhand">
+            <summary>
+            Look at local avatar's left hand 
+            | 로컬 아바타의 왼손 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.avatarLookAt_rhand">
+            <summary>
+            Look at local avatar's right hand 
+            | 로컬 아바타의 오른손 바라보기
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_active">
+            <summary>
+            1 = Use provided position by PrismStudio
+            | 1 = PrismStudio에서 제공하는 위치를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_root">
+            <summary>
+            Use avatar root as PrismStudio root position
+            | 아바타 root 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_head">
+            <summary>
+            Use avatar head as PrismStudio root position
+            | 아바타 머리 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_chest">
+            <summary>
+            Use avatar chest as PrismStudio root position
+            | 아바타 가슴 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_hips">
+            <summary>
+            Use avatar hips as PrismStudio root position
+            | 아바타 허리 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_lfoot">
+            <summary>
+            Use avatar left foot as PrismStudio root position
+            | 아바타 왼쪽 발 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_rfoot">
+            <summary>
+            Use avatar right foot as PrismStudio root position
+            | 아바타 오른쪽 발 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_lhand">
+            <summary>
+            Use avatar left hand as PrismStudio root position
+            | 아바타 왼손 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootP_avatar_rhand">
+            <summary>
+            Use avatar right hand as PrismStudio root position
+            | 아바타 오른손 위치를 PrismStudio 기준 위치로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_active">
+            <summary>
+            1 = Use provided rotation by PrismStudio
+            | 1 = PrismStudio에서 제공하는 각도를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_root">
+            <summary>
+            Use avatar root as PrismStudio root rotation
+            | 아바타 root 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_head">
+            <summary>
+            Use avatar head as PrismStudio root rotation
+            | 아바타 머리 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_chest">
+            <summary>
+            Use avatar chest as PrismStudio root rotation
+            | 아바타 가슴 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_hips">
+            <summary>
+            Use avatar hips as PrismStudio root rotation
+            | 아바타 허리 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_lfoot">
+            <summary>
+            Use avatar left foot as PrismStudio root rotation
+            | 아바타 왼쪽 발 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_rfoot">
+            <summary>
+            Use avatar right foot as PrismStudio root rotation
+            | 아바타 오른쪽 발 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_lhand">
+            <summary>
+            Use avatar left hand as PrismStudio root rotation
+            | 아바타 왼손 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.cameraRootR_avatar_rhand">
+            <summary>
+            Use avatar right hand as PrismStudio root rotation
+            | 아바타 오른손 위치를 PrismStudio 기준 각도로 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.hidemodel">
+            <summary>
+            Hide VRCLens Camera 3D model (functions not affected)
+            VRCLens 카메라 3D 모델 숨기기 (기능에 영향 없음)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_general">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_focus">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_lookat">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_cameraroot">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_misc">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_vrclens">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_virtuallens2">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_integral">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.foldout_vrcnative">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrclens_WhiteBalance">
+            <summary>
+            Camera specific value (VRCLens)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig">
+            <summary>
+            Layer Mask Configuration object for VirtualLens2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.LocalPlayer">
+            <summary>
+            Is Local Player visible?
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.RemotePlayer">
+            <summary>
+            Is Remote Player visible?
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.UI">
+            <summary>
+            is Game/World UI visible?
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.op_Equality(PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig,PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.op_Inequality(PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig,PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig and flip
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.Equals(PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.Equals(System.Object)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VirtualLens2_LayerMaskConfig.GetHashCode">
+            <summary>
+            Get mask flag Int 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.virtuallens2_LayerMask">
+            <summary>
+            Camera specific value (VirtualLens2)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VirtualLens2_AutoFocusModes">
+            <summary>
+            Auto Focus Modes for VirtualLen2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusModes.PointAF">
+            <summary>
+            Point Auto Focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusModes.FaceAF">
+            <summary>
+            Face detection Auto Focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusModes.SelfieAF">
+            <summary>
+            Selfie detection Auto Focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.virtuallens2_AFMode">
+            <summary>
+            Camera specific value (VirtualLens2)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VirtualLens2_AutoFocusSpeeds">
+            <summary>
+            Auto Focus Speed control for VirtualLens2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusSpeeds.Immediate">
+            <summary>
+            Immediate speed
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusSpeeds.Fast">
+            <summary>
+            Fast interpolate
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusSpeeds.Medium">
+            <summary>
+            Medium interpolate
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_AutoFocusSpeeds.Slow">
+            <summary>
+            Slow interpolate
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.virtuallens2_AFSpeed">
+            <summary>
+            Camera specific value (VirtualLens2)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.virtuallens2_PauseAF">
+            <summary>
+            Camera specific value (VirtualLens2)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VirtualLens2_CullingDistances">
+            <summary>
+            Culling distances control for VirtualLens2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_CullingDistances.Default">
+            <summary>
+            Default (Use initial)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_CullingDistances.x10">
+            <summary>
+            Initial * 10
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VirtualLens2_CullingDistances.x100">
+            <summary>
+            Initial * 100
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.virtuallens2_CullingDistance">
+            <summary>
+            Camera specific value (VirtualLens2)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_ShootModes">
+            <summary>
+            Shoot modes available for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.None">
+            <summary>
+            Do nothing
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.Clear">
+            <summary>
+            Clear frame
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.Open">
+            <summary>
+            Open
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.Bulb">
+            <summary>
+            Bulb
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.ClearAndOpen">
+            <summary>
+            Clear frame and open
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.Single">
+            <summary>
+            Open for single frame
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_ShootModes.SS">
+            <summary>
+            Open with Shutter speed applied
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_ShootMode">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_ShutterSpeed">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_GridMode">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_FocusModes">
+            <summary>
+            Focus mode config for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_FocusModes.Manual">
+            <summary>
+            Manual focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_FocusModes.AF">
+            <summary>
+            Point auto focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_FocusModes.MotionAF">
+            <summary>
+            Motion auto focus
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_FocusMode">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_PauseAF">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_Vignetting">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_AxialChromaticAberration">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_BokehShapes">
+            <summary>
+            Bokeh shapes for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_BokehShapes.Circle">
+            <summary>
+            Circle (Default)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_BokehShapes.Hexagon">
+            <summary>
+            Hexagon
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_BokehShapes.Star">
+            <summary>
+            5 corner star
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_BokehShapes.Heart">
+            <summary>
+            Heart
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_BokehShapes.Bubble">
+            <summary>
+            Bubble
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_BokehShape">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_BokehShapeRotation">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_CompositionModes">
+            <summary>
+            Composition modes for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_CompositionModes.Normal">
+            <summary>
+            Normal (Default)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_CompositionModes.Lighten">
+            <summary>
+            Lighten (for single frame)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_CompositionModes.Darken">
+            <summary>
+            Darken (for single frame)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_CompositionModes.Depth">
+            <summary>
+            Depth capture
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_CompositionMode">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_RollingShutterModes">
+            <summary>
+            Rolling shutter modes for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_RollingShutterModes.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_RollingShutterModes.LeftToRight">
+            <summary>
+            Left to Right
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_RollingShutterModes.TopToBottom">
+            <summary>
+            Top to Bottom
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_RollingShutterModes.RightToLeft">
+            <summary>
+            Right to Left
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_RollingShutterModes.BottomToTop">
+            <summary>
+            Bottom to Top
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_RollingShutterMode">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_Far">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_Curves">
+            <summary>
+            Color curves for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_Curves.Linear">
+            <summary>
+            Linear curve
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_Curves.Log">
+            <summary>
+            Log curve
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_Curve">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.Integral_AspectRatioPreset">
+            <summary>
+            Aspect ratio presets for Integral
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._16_9">
+            <summary>
+            16:9
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._4_3">
+            <summary>
+            4:3
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._3_2">
+            <summary>
+            3:2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._1_1">
+            <summary>
+            1:1
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._2_35_1">
+            <summary>
+            2.35:1
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._7_6">
+            <summary>
+            7:6
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._5_4">
+            <summary>
+            5:4
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._7_5">
+            <summary>
+            7:5
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset._2_1">
+            <summary>
+            2:1
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.Integral_AspectRatioPreset.Custom">
+            <summary>
+            Use custom value (float integral_AspectRatioCustomValue)
+            </summary>
+        </member>
+        <member name="P:PrismStudio.CameraProperty.integral_AspectRatio">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.integral_AspectRatioCustomValue">
+            <summary>
+            Camera specific value (Integral)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.FlexFishEye_AspectRatioPreset._16_9">
+            <summary>
+            16:9
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.FlexFishEye_AspectRatioPreset._1_1">
+            <summary>
+            1:1
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.FlexFishEye_AspectRatioPreset._3_2">
+            <summary>
+            3:2
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.FlexFishEye_AspectRatioPreset._4_3">
+            <summary>
+            4:3
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.FlexFishEye_AspectRatioPreset.Cinematic">
+            <summary>
+            1:1
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.flexfisheye_FOV">
+            <summary>
+            Camera specific value (Flex Fisheye)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VRCNative_Modes">
+            <summary>
+            Enum for VRChat Native Camera's operation mode
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Disabled">
+            <summary>
+            Disable camera
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Photo">
+            <summary>
+            Photo mode
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Stream">
+            <summary>
+            Stream camera (Spout2 enabled separately)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Emoji">
+            <summary>
+            Emoji capture
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.MultiLayer">
+            <summary>
+            Multi-Layer mode
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Print">
+            <summary>
+            Print Camera mode
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_Modes.Drone">
+            <summary>
+            Drone mode
+            </summary>
+        </member>
+        <member name="T:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig">
+            <summary>
+            Layer Mask configuration object for VRChat Native Camera
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.LocalPlayer">
+            <summary>
+            Is Local Player visible?
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.RemotePlayer">
+            <summary>
+            Is Remote Player visible?
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.UI">
+            <summary>
+            is Internal UI visible?
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.Environment">
+            <summary>
+            is Environment (World) visible?
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.op_Equality(PrismStudio.CameraProperty.VRCNative_LayerMaskConfig,PrismStudio.CameraProperty.VRCNative_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.op_Inequality(PrismStudio.CameraProperty.VRCNative_LayerMaskConfig,PrismStudio.CameraProperty.VRCNative_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig and flip
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.Equals(PrismStudio.CameraProperty.VRCNative_LayerMaskConfig)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.Equals(System.Object)">
+            <summary>
+            Compare LayerMaskConfig
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_LayerMaskConfig.GetHashCode">
+            <summary>
+            Get mask flag Int 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Mode">
+            <summary>
+            VRChat Native Camera's operation mode
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_LayerMask">
+            <summary>
+            VRChat Native Camera's Layer Mask configuration
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_GreenScreen">
+            <summary>
+            VRChat Native Camera's Greenscreen toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Lock">
+            <summary>
+            VRChat Native Camera's Pickup lock toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_SmoothMovement">
+            <summary>
+            VRChat Native Camera's movement smoothing postprocessing
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_AutoLevelRoll">
+            <summary>
+            VRChat Native Camera's Auto-Level Roll toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_AutoLevelPitch">
+            <summary>
+            VRChat Native Camera's Auto-Level Pitch toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_AudioFromCamera">
+            <summary>
+            VRChat Native Camera's Audio Listener on Camera
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_ShowFocus">
+            <summary>
+            VRChat Native Camera's focus gizmo visibility toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Streaming">
+            <summary>
+            VRChat Native Camera's Spout2 streaming mode toggle
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_OrientationIsLandscape">
+            <summary>
+            VRChat Native Camera's orientation toggle (true = Landscape 16:9)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Hue">
+            <summary>
+            VRChat Native Camera's Greenscreen Hue
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Saturation">
+            <summary>
+            VRChat Native Camera's Greenscreen Saturation
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_Lightness">
+            <summary>
+            VRChat Native Camera's Greenscreen Lightness
+            </summary>
+        </member>
+        <member name="F:PrismStudio.CameraProperty.vrcnative_SmoothingStrength">
+            <summary>
+            VRChat Native Camera's Movement smoothing strength
+            </summary>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.OnSend(PrismStudio.StudioSystem,System.Boolean)">
+            <summary>
+            Called from StudioSystem
+            StudioSystem에서 호출하는 함수
+            </summary>
+            <param name="system">StudioSystem</param>
+            <param name="immediate">send OSC now?</param>
+            <returns>is success?</returns>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_TakePicture(PrismStudio.StudioSystem)">
+            <summary>
+            Take Picture (using VRChat Native Camera)
+            </summary>
+            <param name="system"></param>
+        </member>
+        <member name="M:PrismStudio.CameraProperty.VRCNative_TakeTimerPicture(PrismStudio.StudioSystem)">
+            <summary>
+            Take Picture with delay (using VRChat Native Camera)
+            </summary>
+            <param name="system"></param>
+        </member>
+        <member name="T:PrismStudio.Constants">
+            <summary>
+            PrismStudio Core: Constants
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.Constants.version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.icon_path_64">
+            <summary>
+            Path of icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.camerapoint_icon_path_64">
+            <summary>
+            Path of Camera Point icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.cameraproperty_icon_path_64">
+            <summary>
+            Path of Camera Property icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.postprocessor_icon_path_64">
+            <summary>
+            Path of Point PostProcessor icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.studiosystem_icon_path_64">
+            <summary>
+            Path of Studio System icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.virtualtrackermanager_icon_path_64">
+            <summary>
+            Path of VirtualTracker Manager icon (64px)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.Constants.virtualtrackerproperty_icon_path_64">
+            <summary>
+            Path of VirtualTracker Property icon (64px)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.I18n">
+            <summary>
+            PrismStudio Core: I18n
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.I18n.currentLanguage">
+            <summary>
+            Current global language
+            </summary>
+        </member>
+        <member name="T:PrismStudio.I18n.SupportedLanguage">
+            <summary>
+            Currently supported languages
+            </summary>
+        </member>
+        <member name="F:PrismStudio.I18n.SupportedLanguage.English">
+            <summary>
+            English Language set
+            </summary>
+        </member>
+        <member name="F:PrismStudio.I18n.SupportedLanguage.Korean">
+            <summary>
+            한국어 언어셋
+            </summary>
+        </member>
+        <member name="F:PrismStudio.I18n.SupportedLanguage.Japanese">
+            <summary>
+            日本語言語セット
+            </summary>
+        </member>
+        <member name="F:PrismStudio.I18n.SupportedLanguageNames">
+            <summary>
+            List of currently supported internalization
+            프리즘스튜디오가 지원하는 언어 리스트
+            </summary>
+        </member>
+        <member name="M:PrismStudio.I18n.Get(PrismStudio.I18n.SupportedLanguage,System.String)">
+            <summary>
+            Get string from LanguageSet
+            LanguageSet으로부터 텍스트 가져오기
+            </summary>
+            <param name="lang">language</param>
+            <param name="key">key</param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.I18n.Format(PrismStudio.I18n.SupportedLanguage,System.String,System.String[])">
+            <summary>
+            Format string from LanguageSet 
+            LanguageSet으로부터 가져온 텍스트를 format하기
+            (pairs = { "%1", "helloworld", ...})
+            </summary>
+            <param name="lang">language</param>
+            <param name="key">key</param>
+            <param name="pairs">format pair</param>
+            <returns></returns>
+        </member>
+        <member name="P:PrismStudio.I18n.LanguageSet">
+            <summary>
+            Direct access to LanguageSet dictionary (get only)
+            LanguageSet에 직접 접근 (get 전용)
+            </summary>
+        </member>
+        <member name="T:PrismStudio.Module">
+            <summary>
+            PrismStudio Core: Module
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.Module.studioSystem">
+            <summary>
+            Registered StudioSystem of this Module
+            | 이 Module에 등록된 StudioSystem
+            </summary>
+        </member>
+        <member name="M:PrismStudio.Module.description(PrismStudio.I18n.SupportedLanguage)">
+            <summary>
+            Get description of module, multilanguage support required when making your own module
+            | 이 모듈의 설명 반환, 직접 모듈을 만들시 다국어 지원 필수
+            </summary>
+            <param name="lang">language</param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.Module.StudioSystemInitialized(PrismStudio.StudioSystem)">
+            <summary>
+            Internal
+            </summary>
+            <param name="studioSystem"></param>
+        </member>
+        <member name="M:PrismStudio.Module.OnStudioSystemInitialized(PrismStudio.StudioSystem)">
+            <summary>
+            Called when StudioSystem is initialized
+            | StudioSystem이 생성되었을때 호출
+            </summary>
+            <param name="studioSystem"></param>
+        </member>
+        <member name="M:PrismStudio.Module.OnCameraTypeChanged(PrismStudio.StudioSystem.ClientCameraType)">
+            <summary>
+            Called when StudioSystem's camera type has changed
+            | StudioSystem의 카메라 종류가 변경되었을때 호출
+            </summary>
+            <param name="newCameraType"></param>
+        </member>
+        <member name="M:PrismStudio.Module.OnSend(PrismStudio.StudioSystem,System.Boolean)">
+            <summary>
+            Called from StudioSystem
+            StudioSystem에서 호출하는 함수
+            </summary>
+            <param name="system">StudioSystem</param>
+            <param name="immediate">send OSC now?</param>
+            <returns>is success?</returns>
+        </member>
+        <member name="T:PrismStudio.OSC.OscServer">
+            <summary>
+            PrismStudio Core: OscServer
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.OscServer.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.OscServer.BufferSize">
+            <summary>
+            Buffer size (default = 4096)
+            | 버퍼 크기
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.OscServer.receieveAction">
+            <summary>
+            Receive action
+            | 리시버 Action(OscMessage)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.OSC.OscServer.verbose">
+            <summary>
+            Log almost everything
+            | 거의 모든 메세지를 로그로 출력
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.OscServer.#ctor(System.Int32,System.Action{OscCore.OscMessage},System.Int32)">
+            <summary>
+            Create &amp; start OSC server with given port, receiverAction, and buffer size
+            | 주어진 정보를 가지고 OSC 서버를 생성 및 시작
+            </summary>
+            <param name="port">port</param>
+            <param name="receiverAction">receiverAction</param>
+            <param name="bufferSize">bufferSize</param>
+        </member>
+        <member name="M:PrismStudio.OSC.OscServer.Open">
+            <summary>
+            Open receiver
+            | 리시버 열기
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.OscServer.Dispose">
+            <summary>
+            Close &amp; dispose receiver
+            | 닫고 버리기
+            </summary>
+        </member>
+        <member name="T:PrismStudio.OSC.OscReceiver">
+            <summary>
+            PrismStudio Core: OscReceiver
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="F:PrismStudio.OSC.OscReceiver.server">
+            <summary>
+            OSC Server
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.OscReceiver.receiverOpened">
+            <summary>
+            Is OSC Receiver Opened
+            | OSC 수신이 열려있는가
+            </summary>
+        </member>
+        <member name="F:PrismStudio.OSC.OscReceiver.AutoStartReceiver">
+            <summary>
+            Initialize OSC Receiver on start
+            | OSC 수신 세션을 자동 시작합니다
+            </summary>
+        </member>
+        <member name="F:PrismStudio.OSC.OscReceiver.ReceiverPort">
+            <summary>
+            Receiver port (UDP)
+            | 수신 포트
+            </summary>
+        </member>
+        <member name="F:PrismStudio.OSC.OscReceiver.monitor">
+            <summary>
+            Action to monitor all the income OSC message
+            | 수신된 모든 OSC 메세지를 모니터링하는 함수
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.OscReceiver.registeredEndpointAddresses">
+            <summary>
+            All addresses of registered endpoints
+            | 등록된 모든 주소
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.OscReceiver.OpenReceiver">
+            <summary>
+            Open OSC receiver session to ReceiverPort 
+            | 타겟 포트에 OSC 수신 세션 시작
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.OscReceiver.CloseReceiver">
+            <summary>
+            Disconnect / terminate OSC receiver 
+            | 수신 세션 닫기
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.OscReceiver.GetEndpoint(System.String)">
+            <summary>
+            Get endpoint of given address
+            | 주어진 주소의 Endpoint를 반환
+            </summary>
+            <param name="address">address</param>
+            <returns>Endpoint</returns>
+        </member>
+        <member name="M:PrismStudio.OSC.OscReceiver.AddEndpoint(System.String,System.Action{OscCore.OscMessage})">
+            <summary>
+            Add endpoint to target address
+            | 주소에 Endpoint 추가
+            </summary>
+            <param name="address"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:PrismStudio.OSC.OscReceiver.RemoveEndpoint(System.String,System.Action{OscCore.OscMessage})">
+            <summary>
+            Remove endpoint of target addres. If endpoint action is empty, the whole endpoint is deleted
+            | 주소의 Endpoint를 삭제, 주소의 Endpoint가 완전히 비어있다면 Endpoint는 제거됨
+            </summary>
+            <param name="address"></param>
+            <param name="action"></param>
+        </member>
+        <member name="T:PrismStudio.OSC.Endpoint">
+            <summary>
+            PrismStudio Core: OSC Endpoint
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.Endpoint.action">
+            <summary>
+            Action (OscMessage)
+            </summary>
+        </member>
+        <member name="P:PrismStudio.OSC.Endpoint.totalActions">
+            <summary>
+            Count of total registered Action
+            | 모든 Action의 갯수
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.Endpoint.#ctor(System.Action{OscCore.OscMessage})">
+            <summary>
+            Create Endpoint with given Action
+            | 주어진 Action을 가지고 Endpoint를 생성
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:PrismStudio.OSC.Endpoint.op_Addition(PrismStudio.OSC.Endpoint,System.Action{OscCore.OscMessage})">
+            <summary>
+            Add action to current Endpoint
+            | Endpoint에 Action 추가
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.OSC.Endpoint.op_Subtraction(PrismStudio.OSC.Endpoint,System.Action{OscCore.OscMessage})">
+            <summary>
+            Remove action from current Endpoint
+            | Endpoint에 Action 제거
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PrismStudio.OSC.Utility">
+            <summary>
+            PrismStudio Core: OSC Utility
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="M:PrismStudio.OSC.Utility.RandomString(System.Int32)">
+            <summary>
+            Generate random string with given length
+            </summary>
+            <param name="length">length</param>
+            <returns></returns>
+        </member>
+        <member name="M:PrismStudio.OSC.Utility.GetLocalIPAddress">
+            <summary>
+            Get this device's local IP address
+            </summary>
+            <returns>IPAddress</returns>
+        </member>
+        <member name="M:PrismStudio.OSC.Utility.GetLocalIPAddressNonLoopback">
+            <summary>
+            Get this device's local, but nonloopback IP address
+            </summary>
+            <returns>IPAddress</returns>
+        </member>
+        <member name="T:PrismStudio.StudioSystem">
+            <summary>
+            PrismStudio Core: StudioSystem
+            (c) harunadev
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.currentLanguage">
+            <summary>
+            Currently saved language
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.SetLanguage(PrismStudio.I18n.SupportedLanguage)">
+            <summary>
+            Set PrismStudio global language to target language
+            </summary>
+            <param name="targetLanguage">target</param>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.FPS">
+            <summary>
+            FPS, or frequency of values sent per second 
+            | FPS, 또는 1초에 전송되는 값의 빈도
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.VSync">
+            <summary>
+            Vertical Sync, program will match FPS to the monitor's frequency
+            | 수직동기화, 모니터와 FPS를 동일하게 설정합니다
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.AutoStartSender">
+            <summary>
+            Initialize OSC Sender on start 
+            | OSC 전송 세션을 자동 시작합니다
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.IP">
+            <summary>
+            Target IP 
+            | IP 주소
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.SenderIP">
+            <summary>
+            Target IP for OSC Sender 
+            | OSC 데이터를 전송할 IP 주소
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.Port">
+            <summary>
+            Target port 
+            | 포트
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.SenderPort">
+            <summary>
+            Sender port 
+            | 송신 포트
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.Point">
+            <summary>
+            Camera point object, required for move and rotation 
+            | 카메라 포인트 오브젝트, 위치와 각도 담당
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.CameraProperty">
+            <summary>
+            Camera Property component, access to zoom, focus, and more 
+            | 카메라 속성 컴포넌트, 확대 및 초점 등의 값 변경
+            </summary>
+        </member>
+        <member name="T:PrismStudio.StudioSystem.TransmitMode">
+            <summary>
+            OSC data transmit mode
+            | OSC 전송 모드
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.TransmitMode.ValueChanged">
+            <summary>
+            OSC data sent only when value changed
+            | OSC 데이터는 변경되었을때만 전송됩니다
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.TransmitMode.EveryFrame">
+            <summary>
+            OSC data sent every frame
+            | 매 프레임마다 OSC 데이터가 전송됩니다
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.TransmitMode.ValueChangedWithEverySecond">
+            <summary>
+            OSC data sent when changed, but also sent every seconds for refresh
+            | OSC 데이터는 변경되었을때, 그리고 1초마다 한번씩 전송됩니다.
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.transmitMode">
+            <summary>
+            Configure how PrismStudio sends OSC values
+            | 프리즘스튜디오가 OSC 데이터를 어떻게 보낼지 결정
+            </summary>
+        </member>
+        <member name="T:PrismStudio.StudioSystem.ClientCameraType">
+            <summary>
+            Avatar Camera type
+            | 아바타 카메라 종류
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.ClientCameraType.VRCLens">
+            <summary>
+            Parameter set for VRCLens
+            | VRCLens용 파라미터를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.ClientCameraType.VirtualLens2">
+            <summary>
+            Parameter set for VirtualLens2
+            | VirtualLens2용 파라미터를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.ClientCameraType.Integral">
+            <summary>
+            Parameter set for Integral
+            | Integral용 파라미터를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.ClientCameraType.FlexFishEye">
+            <summary>
+            Parameter set for FlexFishEye
+            | FlexFishEye용 파라미터를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.ClientCameraType.VRChatNative">
+            <summary>
+            Parameter set for VRChat Native Camera
+            | VRChat 네이티브 카메라용 파라미터를 사용
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.cameraType">
+            <summary>
+            Current camera type
+            | 현재 사용중인 카메라 종류
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.foldout_generals">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.foldout_connectivity">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.foldout_modules">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.foldout_misc">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="F:PrismStudio.StudioSystem.foldout_debug">
+            <summary>
+            Internal (Editor)
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.ForceEnable">
+            <summary>
+            Force initialize objects (for UnityEditor) 
+            | 모든 오브젝트를 찾기 (UnityEditor 용)
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.modules">
+            <summary>
+            Raw list of Modules (public get only, private set)
+            | Module 리스트
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.ValidateModule">
+            <summary>
+            Validate all modules
+            | 연결된 모듈 확인
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.AddModule(PrismStudio.Module)">
+            <summary>
+            Add module
+            | 모듈 추가
+            </summary>
+            <param name="module">target</param>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.RemoveModule(System.Int32)">
+            <summary>
+            Remove module at index
+            | 모듈 제거 (리스트 위치 기반)
+            </summary>
+            <param name="index">index</param>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.connected">
+            <summary>
+            Is OSC Client Connected
+            | OSC 연결중인가
+            </summary>
+        </member>
+        <member name="P:PrismStudio.StudioSystem.senderConnected">
+            <summary>
+            Is OSC Sender Connected
+            | OSC 송신 연결중인가
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Connect">
+            <summary>
+            Start connect to target IP and Port 
+            | 타겟 IP / 포트에 OSC 연결
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Disconnect">
+            <summary>
+            Disconnect / terminate current OSC connection 
+            | 연결 해제
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.ConnectSender">
+            <summary>
+            Start OSC sender connection to target IP and SenderPort 
+            | 타겟 IP / 포트에 OSC 전송 세션 연결
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.DisconnectSender">
+            <summary>
+            Disconnect / terminate OSC sender 
+            | 전송 세션의 연결 해제
+            </summary>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Send(System.String,System.Int32)">
+            <summary>
+            Send OSC value immediately to address, without making OscMessage instance
+            | 주소에 값을 즉시 전송
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Send(System.String,System.Single)">
+            <summary>
+            Send OSC value immediately to address
+            | 주소에 값을 즉시 전송
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Send(System.String,System.Boolean)">
+            <summary>
+            Send OSC value immediately to address
+            | 주소에 값을 즉시 전송
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:PrismStudio.StudioSystem.Send(OscCore.OscMessage)">
+            <summary>
+            Send OSC data immediately 
+            | OSCMessage를 전송
+            </summary>
+            <param name="oscMessage">message</param>
+        </member>
+    </members>
+</doc>

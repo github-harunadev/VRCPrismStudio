@@ -1,0 +1,25 @@
+{
+    "name": "PrismStudio",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.ugui",
+            "expression": "1.0.0",
+            "define": "PACKAGE_UGUI"
+        },
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "1.0.0",
+            "define": "PACKAGE_CINEMACHINE"
+        }
+    ],
+    "noEngineReferences": false
+}
