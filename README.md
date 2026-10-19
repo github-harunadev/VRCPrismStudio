@@ -8,6 +8,16 @@
 
 ---
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=zgE6o-rIXyE">
+    <img src="https://img.youtube.com/vi/zgE6o-rIXyE/maxresdefault.jpg" alt="Watch the Promotion video" width="600">
+  </a>
+  <br>
+  <em>▶ Click the thumbnail above to watch the promo video on YouTube</em>
+</p>
+
+---
+
 VRCPrismStudio (or PrismStudio) is an advanced video shooting asset for VRChat. It operates separately from VRChat and transmits data such as camera location to VRChat, so the camera location within VRChat is applied in real time.
 
 VRCPrismStudio uses camera gimmicks such as VRCLens/VirtualLens2/Integral, and is made available through Universal Patcher, which modifies them to work with VRCPrismStudio.
