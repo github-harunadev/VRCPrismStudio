@@ -18,7 +18,16 @@ Using the VRCPrismStudio Unity project as a framework, you can also build your o
 
 ---
 
-# Download
+## Download
 
-Current latest version: 1.17 &nbsp;&nbsp;&nbsp;[Go to latest release](https://github.com/github-harunadev/VRCPrismStudio/releases/tag/latest)
----
+Current latest version: 1.17
+
+### → [Go to latest release](https://github.com/github-harunadev/VRCPrismStudio/releases/tag/latest)
+
+## Disclaimer
+This project is an independent open-source tool and is not affiliated with, endorsed by, or associated with the creators of VRCLens, VirtualLens2, Integral, FlexFishEye, or VRChat Inc.
+
+Content produced using this software (including in-game photos, videos, streams, and recordings) belongs entirely to the user and is not bound by this license.
+
+## License
+Mozilla Public License 2.0 (MPL 2.0) - see [LICENSE](LICENSE)
