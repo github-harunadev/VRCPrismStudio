@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[Documents](https://docs.haruna.dev/en/vrcprismstudio) &nbsp;&nbsp;|&nbsp;&nbsp; [한국어 문서](https://docs.haruna.dev/ko/vrcprismstudio) &nbsp;&nbsp;|&nbsp;&nbsp; [日本語版　文書](https://docs.haruna.dev/ja/vrcprismstudio)
+[Documents](https://docs.haruna.dev/en/vrcprismstudio) &nbsp;&nbsp;|&nbsp;&nbsp; [한국어 문서](https://docs.haruna.dev/vrcprismstudio) &nbsp;&nbsp;|&nbsp;&nbsp; [日本語版　文書](https://docs.haruna.dev/ja/vrcprismstudio)
 
 </div>
 
